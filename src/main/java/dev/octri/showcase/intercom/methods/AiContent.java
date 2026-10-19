@@ -64,7 +64,7 @@ public class AiContent {
         private String url;
         private IntercomVersion intercomVersion;
         private ContentImportSourceStatusEnum status;
-        private SdkClient.OptionalValue<Object> audienceIds;
+        private SdkClient.OptionalValue<List<Long>> audienceIds;
 
         private CreateContentImportSourceParams() {}
 
@@ -76,14 +76,14 @@ public class AiContent {
             public Builder url(String val) { request.url = val; return this; }
             public Builder intercomVersion(IntercomVersion val) { request.intercomVersion = val; return this; }
             public Builder status(ContentImportSourceStatusEnum val) { request.status = val; return this; }
-            public Builder audienceIds(SdkClient.OptionalValue<Object> val) { request.audienceIds = val; return this; }
+            public Builder audienceIds(SdkClient.OptionalValue<List<Long>> val) { request.audienceIds = val; return this; }
             public CreateContentImportSourceParams build() { return request; }
         }
         public CreateContentImportSourceRequestSyncBehaviorEnum getSyncBehavior() { return syncBehavior; }
         public String getUrl() { return url; }
         public IntercomVersion getIntercomVersion() { return intercomVersion; }
         public ContentImportSourceStatusEnum getStatus() { return status; }
-        public SdkClient.OptionalValue<Object> getAudienceIds() { return audienceIds; }
+        public SdkClient.OptionalValue<List<Long>> getAudienceIds() { return audienceIds; }
     }
 
     /**
@@ -105,7 +105,7 @@ public class AiContent {
         String url = request.getUrl();
         IntercomVersion intercomVersion = request.getIntercomVersion();
         ContentImportSourceStatusEnum status = request.getStatus();
-        SdkClient.OptionalValue<Object> audienceIds = request.getAudienceIds();
+        SdkClient.OptionalValue<List<Long>> audienceIds = request.getAudienceIds();
 
         return SdkClient.request(clientConfig, "POST", "/ai/content_import_sources", null, SdkClient.q("sync_behavior", syncBehavior, "url", url, "status", SdkClient.omitIfNull(status), "audience_ids", audienceIds), null, new TypeReference<ContentImportSource>(){}, "createContentImportSource", SdkClient.headers("Intercom-Version", SdkClient.headerValue(intercomVersion, false)), SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("401", Error2.class)).data;
     }
@@ -199,7 +199,7 @@ public class AiContent {
         private String url;
         private IntercomVersion intercomVersion;
         private ContentImportSourceStatusEnum status;
-        private SdkClient.OptionalValue<Object> audienceIds;
+        private SdkClient.OptionalValue<List<Long>> audienceIds;
         private Boolean applyAudienceToExistingContent;
 
         private UpdateContentImportSourceParams() {}
@@ -213,7 +213,7 @@ public class AiContent {
             public Builder url(String val) { request.url = val; return this; }
             public Builder intercomVersion(IntercomVersion val) { request.intercomVersion = val; return this; }
             public Builder status(ContentImportSourceStatusEnum val) { request.status = val; return this; }
-            public Builder audienceIds(SdkClient.OptionalValue<Object> val) { request.audienceIds = val; return this; }
+            public Builder audienceIds(SdkClient.OptionalValue<List<Long>> val) { request.audienceIds = val; return this; }
             public Builder applyAudienceToExistingContent(Boolean val) { request.applyAudienceToExistingContent = val; return this; }
             public UpdateContentImportSourceParams build() { return request; }
         }
@@ -222,7 +222,7 @@ public class AiContent {
         public String getUrl() { return url; }
         public IntercomVersion getIntercomVersion() { return intercomVersion; }
         public ContentImportSourceStatusEnum getStatus() { return status; }
-        public SdkClient.OptionalValue<Object> getAudienceIds() { return audienceIds; }
+        public SdkClient.OptionalValue<List<Long>> getAudienceIds() { return audienceIds; }
         public Boolean getApplyAudienceToExistingContent() { return applyAudienceToExistingContent; }
     }
 
@@ -246,7 +246,7 @@ public class AiContent {
         String url = request.getUrl();
         IntercomVersion intercomVersion = request.getIntercomVersion();
         ContentImportSourceStatusEnum status = request.getStatus();
-        SdkClient.OptionalValue<Object> audienceIds = request.getAudienceIds();
+        SdkClient.OptionalValue<List<Long>> audienceIds = request.getAudienceIds();
         Boolean applyAudienceToExistingContent = request.getApplyAudienceToExistingContent();
 
         return SdkClient.request(clientConfig, "PUT", "/ai/content_import_sources/" + SdkClient.encodePathSegment(sourceId) + "", null, SdkClient.q("sync_behavior", syncBehavior, "url", url, "status", SdkClient.omitIfNull(status), "audience_ids", audienceIds, "apply_audience_to_existing_content", SdkClient.omitIfNull(applyAudienceToExistingContent)), null, new TypeReference<ContentImportSource>(){}, "updateContentImportSource", SdkClient.headers("Intercom-Version", SdkClient.headerValue(intercomVersion, false)), SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("401", Error2.class)).data;
