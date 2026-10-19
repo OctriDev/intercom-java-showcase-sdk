@@ -5,6 +5,7 @@ package dev.octri.showcase.intercom.models.ai_content;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.intercom.Validation;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -28,7 +29,7 @@ public final class UpdateContentImportSourceRequest {
     /**
      * The unique identifiers for the audiences to associate with this content import source. Can be a single integer or an array of integers. Set to null or an empty array to remove all audiences.
      */
-    @Nullable @JsonProperty("audience_ids") public Object audienceIds;
+    @Nullable @JsonProperty("audience_ids") public List<Long> audienceIds;
     /**
      * When true, the audience will be applied to all existing external pages belonging to this content import source.
      */
@@ -39,12 +40,12 @@ public final class UpdateContentImportSourceRequest {
         private UpdateContentImportSourceRequestSyncBehaviorEnum syncBehavior;
         private String url;
         private UpdateContentImportSourceRequestStatusEnum status;
-        private Object audienceIds;
+        private List<Long> audienceIds;
         private Boolean applyAudienceToExistingContent;
         public Builder syncBehavior(UpdateContentImportSourceRequestSyncBehaviorEnum value) { this.syncBehavior = value; return this; }
         public Builder url(String value) { this.url = value; return this; }
         public Builder status(UpdateContentImportSourceRequestStatusEnum value) { this.status = value; return this; }
-        public Builder audienceIds(Object value) { this.audienceIds = value; return this; }
+        public Builder audienceIds(List<Long> value) { this.audienceIds = value; return this; }
         public Builder applyAudienceToExistingContent(Boolean value) { this.applyAudienceToExistingContent = value; return this; }
         public UpdateContentImportSourceRequest build() {
             UpdateContentImportSourceRequest result = new UpdateContentImportSourceRequest();
