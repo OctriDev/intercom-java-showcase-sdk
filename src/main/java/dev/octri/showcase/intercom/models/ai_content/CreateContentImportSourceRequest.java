@@ -5,6 +5,7 @@ package dev.octri.showcase.intercom.models.ai_content;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.octri.showcase.intercom.Validation;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -28,18 +29,18 @@ public final class CreateContentImportSourceRequest {
     /**
      * The unique identifiers for the audiences to associate with this content import source. Can be a single integer or an array of integers.
      */
-    @Nullable @JsonProperty("audience_ids") public Object audienceIds;
+    @Nullable @JsonProperty("audience_ids") public List<Long> audienceIds;
     private CreateContentImportSourceRequest() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
         private CreateContentImportSourceRequestSyncBehaviorEnum syncBehavior;
         private String url;
         private CreateContentImportSourceRequestStatusEnum status;
-        private Object audienceIds;
+        private List<Long> audienceIds;
         public Builder syncBehavior(CreateContentImportSourceRequestSyncBehaviorEnum value) { this.syncBehavior = value; return this; }
         public Builder url(String value) { this.url = value; return this; }
         public Builder status(CreateContentImportSourceRequestStatusEnum value) { this.status = value; return this; }
-        public Builder audienceIds(Object value) { this.audienceIds = value; return this; }
+        public Builder audienceIds(List<Long> value) { this.audienceIds = value; return this; }
         public CreateContentImportSourceRequest build() {
             CreateContentImportSourceRequest result = new CreateContentImportSourceRequest();
             Validation.validateRequired("sync_behavior", this.syncBehavior);
