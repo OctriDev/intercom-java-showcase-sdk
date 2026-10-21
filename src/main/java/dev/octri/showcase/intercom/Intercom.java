@@ -4937,8 +4937,8 @@ public class Intercom {
          *
          * Unlink a conversation (or converted customer ticket) from a tracker ticket it is currently linked to. The ticket in the path must be a tracker ticket. This returns the conversation that was unlinked. Requires the `write_tickets` OAuth scope.
          */
-        public Conversation unlinkConversation(Tickets.UnlinkTicketsConversationRequest request) {
-            return Tickets.unlinkTicketsConversation(this.clientConfig, request);
+        public Conversation unlinkConversation(Tickets.UnlinkTicketConversationRequest request) {
+            return Tickets.unlinkTicketConversation(this.clientConfig, request);
         }
 
         /**
@@ -4946,8 +4946,8 @@ public class Intercom {
          *
          * Unlink a conversation (or converted customer ticket) from a tracker ticket it is currently linked to. The ticket in the path must be a tracker ticket. This returns the conversation that was unlinked. Requires the `write_tickets` OAuth scope.
          */
-        public Conversation unlinkConversation(Tickets.UnlinkTicketsConversationRequest request, SdkConfig.RequestOptions options) {
-            return Tickets.unlinkTicketsConversation(this.clientConfig, request, options);
+        public Conversation unlinkConversation(Tickets.UnlinkTicketConversationRequest request, SdkConfig.RequestOptions options) {
+            return Tickets.unlinkTicketConversation(this.clientConfig, request, options);
         }
 
         /**
