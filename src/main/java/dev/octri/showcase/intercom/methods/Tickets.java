@@ -164,22 +164,22 @@ public class Tickets {
 
 
 
-    public static class UnlinkTicketsConversationRequest {
+    public static class UnlinkTicketConversationRequest {
 
         private String ticketId;
         private String id;
         private IntercomVersion intercomVersion;
 
-        private UnlinkTicketsConversationRequest() {}
+        private UnlinkTicketConversationRequest() {}
 
         public static Builder builder() { return new Builder(); }
 
         public static class Builder {
-            private final UnlinkTicketsConversationRequest request = new UnlinkTicketsConversationRequest();
+            private final UnlinkTicketConversationRequest request = new UnlinkTicketConversationRequest();
             public Builder ticketId(String val) { request.ticketId = val; return this; }
             public Builder id(String val) { request.id = val; return this; }
             public Builder intercomVersion(IntercomVersion val) { request.intercomVersion = val; return this; }
-            public UnlinkTicketsConversationRequest build() { return request; }
+            public UnlinkTicketConversationRequest build() { return request; }
         }
         public String getTicketId() { return ticketId; }
         public String getId() { return id; }
@@ -191,8 +191,8 @@ public class Tickets {
      *
      * Unlink a conversation (or converted customer ticket) from a tracker ticket it is currently linked to. The ticket in the path must be a tracker ticket. This returns the conversation that was unlinked. Requires the `write_tickets` OAuth scope.
      */
-    public static Conversation unlinkTicketsConversation(SdkConfig.ClientConfig clientConfig, UnlinkTicketsConversationRequest request) {
-        return unlinkTicketsConversation(clientConfig, request, null);
+    public static Conversation unlinkTicketConversation(SdkConfig.ClientConfig clientConfig, UnlinkTicketConversationRequest request) {
+        return unlinkTicketConversation(clientConfig, request, null);
     }
 
     /**
@@ -200,12 +200,12 @@ public class Tickets {
      *
      * Unlink a conversation (or converted customer ticket) from a tracker ticket it is currently linked to. The ticket in the path must be a tracker ticket. This returns the conversation that was unlinked. Requires the `write_tickets` OAuth scope.
      */
-    public static Conversation unlinkTicketsConversation(SdkConfig.ClientConfig clientConfig, UnlinkTicketsConversationRequest request, SdkConfig.RequestOptions options) {
+    public static Conversation unlinkTicketConversation(SdkConfig.ClientConfig clientConfig, UnlinkTicketConversationRequest request, SdkConfig.RequestOptions options) {
         String ticketId = request.getTicketId();
         String id = request.getId();
         IntercomVersion intercomVersion = request.getIntercomVersion();
 
-        return SdkClient.request(clientConfig, "DELETE", "/tickets/" + SdkClient.encodePathSegment(ticketId) + "/linked_conversations/" + SdkClient.encodePathSegment(id) + "", null, null, null, new TypeReference<Conversation>(){}, "unlinkTicketsConversation", SdkClient.headers("Intercom-Version", SdkClient.headerValue(intercomVersion, false)), SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", Error2.class, "401", Error2.class, "404", Error2.class)).data;
+        return SdkClient.request(clientConfig, "DELETE", "/tickets/" + SdkClient.encodePathSegment(ticketId) + "/linked_conversations/" + SdkClient.encodePathSegment(id) + "", null, null, null, new TypeReference<Conversation>(){}, "unlinkTicketConversation", SdkClient.headers("Intercom-Version", SdkClient.headerValue(intercomVersion, false)), SdkClient.ResponseDecoder.JSON, options, java.util.Map.of("400", Error2.class, "401", Error2.class, "404", Error2.class)).data;
     }
 
 
